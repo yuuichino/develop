@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('weights', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('age')->unique();
-            $table->string('sex');
-            $table->string('introduction');
-            $table->string('password');
+            $table->foreignId('user_id')->constrained(); 
+            $table->string('weight');
+            $table->date('days');//dateのほうが良い？
         });
+        
+
     }
 
     /**
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('weights');
     }
 };
