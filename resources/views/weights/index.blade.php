@@ -7,23 +7,23 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>Muscle</h1>
-        <div class='posts'>
-            @foreach ($posts as $post)
-                <div class='post'>
-                    <p class='comment'>{{ $post->comment }}</p>
-                    <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+        <h1>Weights</h1>
+        <div class='weights'>
+            @foreach ($weights as $weight)
+                <div class='weight'>
+                    <p class='body'>{{ $weight->weight }}</p>
+                    <form action="/weights/{{ $weight->id }}" id="form_{{ $weight->id }}" method="weight">
     @csrf
     @method('DELETE')
-    <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
+    <button type="button" onclick="deletePost({{ $weight->id }})">delete</button> 
 </form>
                 </div>
             @endforeach
         </div>
         <div class='paginate'>
-            {{ $posts->links() }}
+            {{ $weights->links() }}
         </div>
-        <a href='/posts/create'>create</a>
+        <a href='/weights/create'>create</a>
         <script>
         function deletePost(id) {
         'use strict'

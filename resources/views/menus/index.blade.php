@@ -8,22 +8,25 @@
     </head>
     <body>
         <h1>Muscle</h1>
-        <div class='posts'>
-            @foreach ($posts as $post)
-                <div class='post'>
-                    <p class='comment'>{{ $post->comment }}</p>
-                    <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+        <div class='menus'>
+            @foreach ($menus as $menu)
+                <div class='menu'>
+                    <h2 class='title'>
+    <a href="/menus/{{ $menu->id }}">{{ $menu->title }}</a>
+    </h2>
+                    <p class='body'>{{ $menu->body }}</p>
+                    <form action="/menus/{{ $menu->id }}" id="form_{{ $menu->id }}" method="menu">
     @csrf
     @method('DELETE')
-    <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
+    <button type="button" onclick="deletePost({{ $menu->id }})">delete</button> 
 </form>
                 </div>
             @endforeach
         </div>
         <div class='paginate'>
-            {{ $posts->links() }}
+            {{ $menus->links() }}
         </div>
-        <a href='/posts/create'>create</a>
+        <a href='/menus/create'>create</a>
         <script>
         function deletePost(id) {
         'use strict'

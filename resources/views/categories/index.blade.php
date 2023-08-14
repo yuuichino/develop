@@ -2,28 +2,28 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Muscle</title>
+        <title>Category</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>Muscle</h1>
-        <div class='posts'>
-            @foreach ($posts as $post)
-                <div class='post'>
-                    <p class='comment'>{{ $post->comment }}</p>
-                    <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+        <h1>type</h1>
+        <div class='categories'>
+            @foreach ($categories as $category)
+                <div class='category'>
+                    <p class='type'>{{ $category->type }}</p>
+                    <form action="/categories/{{ $category->id }}" id="form_{{ $category->id }}" method="category">
     @csrf
     @method('DELETE')
-    <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
+    <button type="button" onclick="deletePost({{ $category->id }})">delete</button> 
 </form>
                 </div>
             @endforeach
         </div>
         <div class='paginate'>
-            {{ $posts->links() }}
+            {{ $categories->links() }}
         </div>
-        <a href='/posts/create'>create</a>
+        <a href='/categories/create'>create</a>
         <script>
         function deletePost(id) {
         'use strict'
