@@ -12,9 +12,24 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+<x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+    {{ __('Dashboard') }}
+</x-nav-link>
+<x-nav-link :href="route('menues')" :active="request()->routeIs('menues')">
+    {{ __('Menues') }}
+</x-nav-link>
+<x-nav-link :href="route('posts')" :active="request()->routeIs('posts')">
+    {{ __('Posts') }}
+</x-nav-link>
+<x-nav-link :href="route('weights')" :active="request()->routeIs('weights')">
+    {{ __('Weights') }}
+</x-nav-link>
+<x-nav-link :href="route('works')" :active="request()->routeIs('works')">
+    {{ __('Works') }}
+</x-nav-link>
+<x-nav-link :href="route('categories')" :active="request()->routeIs('categories')">
+    {{ __('Categories') }}
+</x-nav-link>
                 </div>
             </div>
 
